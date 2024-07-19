@@ -281,7 +281,15 @@ _installUbuntuPackages() {
         zlib1g-dev \
         ccache \
 
-    if _versionCompare $1 -ge 22.10; then
+    if _versionCompare $1 -ge 24.04; then
+        apt-get install -y --no-install-recommends \
+            libpython3.12 \
+            qt5-qmake \
+            qtbase5-dev \
+            qtbase5-dev-tools \
+            libqt5charts5-dev \
+            qtchooser
+    elif [[ $1 -ge 22.10 ]]; then
         apt-get install -y --no-install-recommends \
             libpython3.11 \
             qt5-qmake \
