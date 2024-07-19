@@ -4,3 +4,6 @@
 [submodule "src/abc"]
 	path = third-party/abc
 	url = ../../The-OpenROAD-Project/abc.git
+[submodule "src/prv"]
+	path = src/prv
+	url = ../OpenROAD-modules.git
