@@ -284,6 +284,7 @@ add_subdirectory(utl)
 add_subdirectory(dst)
 add_subdirectory(pdn)
 add_subdirectory(dft)
+add_subdirectory(prv)
 add_subdirectory(mpl2)
 add_subdirectory(par)
 
@@ -347,6 +348,7 @@ target_link_libraries(openroad
   utl
   pdn
   dft
+  prv
   mpl2
   par
   ${ABC_LIBRARY}
@@ -423,6 +425,7 @@ if (Python3_FOUND AND BUILD_PYTHON)
     psm_py
     pdn_py
     dft_py
+    prv_py
     par_py
   )
 

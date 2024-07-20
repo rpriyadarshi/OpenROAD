@@ -73,6 +73,7 @@
 #include "par/MakePartitionMgr.h"
 #include "pdn/MakePdnGen.hh"
 #include "ppl/MakeIoplacer.h"
+#include "prv/MakePrv.hh"
 #include "psm/MakePDNSim.hh"
 #include "rcx/MakeOpenRCX.h"
 #include "rmp/MakeRestructure.h"
@@ -148,6 +149,7 @@ OpenRoad::~OpenRoad()
   deleteDistributed(distributer_);
   deleteSteinerTreeBuilder(stt_builder_);
   dft::deleteDft(dft_);
+  prv::deletePrv(prv_);
   delete logger_;
 }
 
@@ -202,6 +204,7 @@ void OpenRoad::init(Tcl_Interp* tcl_interp)
   distributer_ = makeDistributed();
   stt_builder_ = makeSteinerTreeBuilder();
   dft_ = dft::makeDft();
+  prv_ = prv::makePrv();
 
   // Init components.
   Openroad_swig_Init(tcl_interp);
@@ -238,6 +241,7 @@ void OpenRoad::init(Tcl_Interp* tcl_interp)
   initDistributed(this);
   initSteinerTreeBuilder(this);
   dft::initDft(this);
+  prv::initPrv(this);
 
   // Import exported commands to global namespace.
   Tcl_Eval(tcl_interp, "sta::define_sta_cmds");
